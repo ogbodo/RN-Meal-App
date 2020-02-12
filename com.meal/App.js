@@ -8,7 +8,7 @@ import { createStore, combineReducers } from 'redux'
 import mealsReducer from './store/reducers/mealReducer';
 import { Provider } from 'react-redux'
 
-enableScreens()//To increase performance under the hood when going between screens
+enableScreens(true)//To increase performance under the hood when going between screens
 
 const rootReducer = combineReducers({ mealsReducer })
 const store = createStore(rootReducer);

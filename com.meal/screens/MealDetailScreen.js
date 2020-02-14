@@ -34,7 +34,7 @@ function MealDetailScreen(props) {
         props.navigation.setParams({ toggleFav: toggleFavoriteHandler })
     }, [toggleFavoriteHandler])
 
-    return <ScrollView>
+    return (<ScrollView>
         <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
         <View style={styles.details}>
             <DefaultText>{selectedMeal.duration}m</DefaultText>
@@ -42,10 +42,10 @@ function MealDetailScreen(props) {
             <DefaultText>{selectedMeal.affordability.toUpperCase()}</DefaultText>
         </View>
         <Text style={styles.title}>Ingredients</Text>
-        {selectedMeal.ingredients.map(ingredient => <ListItem item={ingredient} />)}
+        {selectedMeal.ingredients.map(ingredient => <ListItem key={ingredient} item={ingredient} />)}
         <Text style={styles.title}>List of steps</Text>
-        {selectedMeal.steps.map(step => <ListItem item={step} />)}
-    </ScrollView>
+        {selectedMeal.steps.map(step => <ListItem key={step} item={step} />)}
+    </ScrollView>)
 }
 
 MealDetailScreen.navigationOptions = (navData) => {
